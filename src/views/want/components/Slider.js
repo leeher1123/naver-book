@@ -1,24 +1,91 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useRef } from 'react';
+import styled, { css } from 'styled-components';
+import Slider from 'react-slick';
 
-const Slider = () => (
-  <Container>
-    <img src="https://static.wanted.co.kr/images/banners/1434/fdbbcb06.jpg" alt="주황" />
-    <img src="https://static.wanted.co.kr/images/banners/1436/e2dd9445.jpg" alt="파랑" />
-    <img src="https://static.wanted.co.kr/images/banners/1452/be4ec643.jpg" alt="남색" />
-    <img src="https://static.wanted.co.kr/images/banners/1460/619f3af7.jpg" alt="초록" />
-    <img src="https://static.wanted.co.kr/images/banners/1473/41f7b36e.jpg" alt="연두" />
-    <img src="https://static.wanted.co.kr/images/banners/1468/3df61cbc.jpg" alt="해커리어" />
-  </Container>
-);
+import { images } from '../../../appData';
+import { LeftBtn, RightBtn } from '../icons';
+
+const SliderA = () => {
+  const sliderRef = useRef();
+  useEffect(() => {
+    sliderRef.current.scrollLeft = (window.innerWidth * 0.75
+      - (window.innerWidth - window.innerWidth * 0.75) / 2);
+  }, []);
+
+  const settings = {
+    infinite: true,
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: '190px',
+    draggable: true,
+  };
+  const onClickLeft = () => {
+    sliderRef.current.slickPrev();
+  };
+  const onClickRight = () => {
+    sliderRef.current.slickNext();
+  };
+  return (
+    <Container>
+      <StyledSlider {...settings} ref={sliderRef}>
+        {
+          images.map((item, index) => <img src={item.src} key={item.id} alt="" />)
+        }
+      </StyledSlider>
+      <Buttons>
+        <LeftButton onClick={onClickLeft}><LeftBtn /></LeftButton>
+        <RightButton onClick={onClickRight}><RightBtn /></RightButton>
+      </Buttons>
+    </Container>
+  );
+};
 
 const Container = styled.div`
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    img {
-        padding: 0 12px;
-    }
+    
 `;
 
-export default Slider;
+const StyledSlider = styled(Slider)`
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  img {
+    border-radius: 4px;
+    padding: 0 12px;
+  }
+`;
+
+const Buttons = styled.div`
+  
+`;
+
+const buttonStyle = css`
+  position: absolute;
+  top: 143px;
+  width: 30px;
+  height: 60px;
+  border: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 15px;
+  cursor: pointer;
+  svg {
+    fill: #111;
+    width: 16px;
+    height: 16px;
+  }
+`;
+
+const LeftButton = styled.button`
+  ${buttonStyle};
+  left: 120px;
+`;
+
+const RightButton = styled.button`
+  ${buttonStyle};
+  right: 105px;
+`;
+
+export default SliderA;

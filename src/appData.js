@@ -18,3 +18,30 @@ export const appData = [
            착한 칫솔 세트`,
   },
 ];
+
+export const images = [
+  {
+    src: 'https://static.wanted.co.kr/images/banners/1434/fdbbcb06.jpg',
+    id: 1,
+  },
+  {
+    src: 'https://static.wanted.co.kr/images/banners/1436/e2dd9445.jpg',
+    id: 2,
+  },
+  {
+    src: 'https://static.wanted.co.kr/images/banners/1452/be4ec643.jpg',
+    id: 3,
+  },
+  {
+    src: 'https://static.wanted.co.kr/images/banners/1460/619f3af7.jpg',
+    id: 4,
+  },
+  {
+    src: 'https://static.wanted.co.kr/images/banners/1473/41f7b36e.jpg',
+    id: 5,
+  },
+  {
+    src: 'https://static.wanted.co.kr/images/banners/1468/3df61cbc.jpg',
+    id: 6,
+  },
+];

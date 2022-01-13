@@ -1,16 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import Slider from './Slider';
+import SliderA from './Slider';
 
 const Visual = () => (
   <Container>
-    <Slider />
+    <SliderA />
   </Container>
 );
 
 const Container = styled.div`
   padding-top: 25px;
+  position: relative;
 `;
 
 export default Visual;
