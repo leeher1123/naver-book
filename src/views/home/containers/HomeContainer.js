@@ -13,7 +13,6 @@ const HomeContainer = () => {
     });
     setMovie(result.data.items);
   };
-  console.log(movie);
   useEffect(() => {
     getMovie();
   }, []);
