@@ -2,35 +2,15 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
+import { useParams } from 'react-router-dom';
+
 import { API } from '../../../api';
 
-const HomeContainer = () => {
-  const [movie, setMovie] = useState([]);
-  const getMovie = async () => {
-    const result = await API('/v1/search/book.json', 'get', {
-      query: '소설',
-      display: 5,
-    });
-    setMovie(result.data.items);
-  };
-  useEffect(() => {
-    getMovie();
-  }, []);
-  return (
-    <Container>
-      <div>
-        {
-          movie.map((item) => (
-            <>
-              <div>{item.title}</div>
-              <img src={item.image} alt="" />
-            </>
-          ))
-        }
-      </div>
-    </Container>
-  );
-};
+const HomeContainer = () => (
+  <Container>
+    Home
+  </Container>
+);
 
 const Container = styled.div`
 
