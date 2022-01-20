@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const BookList = ({ item }) => {
-  const a = 1;
+  console.log(item);
   return (
     <Container>
       <Contents>
@@ -16,7 +16,8 @@ const BookList = ({ item }) => {
 };
 
 const Container = styled.div`
-  border: 1px solid #000;
+  border: 1px solid rgba(40, 50, 60, 0.19);
+  background: #F9F9FC;
 `;
 
 const Contents = styled.div`
