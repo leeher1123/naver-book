@@ -50,6 +50,7 @@ const HomeContainer = () => {
 
 const Container = styled.div`
   padding: 0 30px;
+  height: 300px;
 `;
 
 const Form = styled.form`
