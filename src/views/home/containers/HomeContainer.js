@@ -67,6 +67,8 @@ const Input = styled.input`
   display: block;
   width: 100%;
   padding: 8px;
+  border: 1px solid #767676;
+  outline: 0;
 `;
 
 const Button = styled.button`

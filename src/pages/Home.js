@@ -12,16 +12,23 @@ const Home = () => {
   return (
     <Container>
       <HomeContainer />
-      <PostForm />
-      {
-        mainPosts.map((post) => <PostCard key={post.id} post={post} />)
-      }
+      <Post>
+        <PostForm />
+        {
+          mainPosts.map((post) => <PostCard key={post.id} post={post} />)
+        }
+      </Post>
     </Container>
   );
 };
 
 const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
+const Post = styled.div`
+  
 `;
 
 export default Home;
