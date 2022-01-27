@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-
-import { useParams } from 'react-router-dom';
 
 import CustomItem from './CustomItem';
 import Toggle from './Toggle';
@@ -12,13 +10,38 @@ import AutoComplete from './AutoComplete';
 import ClickToEdit from './ClickToEdit';
 
 const Custom = () => {
-  const title = ['Toggle', 'Modal', 'Tab', 'Tag', 'AutoComplete', 'ClickToEdit'];
+  const customData = [
+    {
+      title: 'Toggle',
+      to: '/toggle',
+    },
+    {
+      title: 'Modal',
+      to: '/modal',
+    },
+    {
+      title: 'Tab',
+      to: '/tab',
+    },
+    {
+      title: 'Tag',
+      to: '/tag',
+    },
+    {
+      title: 'AutoComplete',
+      to: '/autoComplete',
+    },
+    {
+      title: 'ClickToEdit',
+      to: '/clickToEdit',
+    },
+  ];
 
   return (
     <Container>
       <List>
         {
-          title.map((item) => <CustomItem data={item} />)
+          customData.map((item) => <CustomItem data={item} />)
         }
       </List>
     </Container>

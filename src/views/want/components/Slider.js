@@ -51,7 +51,7 @@ const Container = styled.div`
 const StyledSlider = styled(Slider)`
   display: flex;
   align-items: center;
-  overflow-x: auto;
+  overflow-x: hidden;
   img {
     border-radius: 4px;
     padding: 0 12px;
