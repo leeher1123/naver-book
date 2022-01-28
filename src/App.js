@@ -12,7 +12,7 @@ import Tag from './views/want/components/Custom/Tag';
 import Tab from './views/want/components/Custom/Tab';
 import Modal from './views/want/components/Custom/Modal';
 import ClickToEdit from './views/want/components/Custom/ClickToEdit';
-import AutoComplete from './views/want/components/Custom/AutoComplete';
+import AutoComplete from './views/want/components/Custom/autoComplete/AutoComplete';
 
 const App = () => (
   <Container>

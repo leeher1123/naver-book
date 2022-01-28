@@ -6,7 +6,7 @@ import Toggle from './Toggle';
 import Modal from './Modal';
 import Tab from './Tab';
 import Tag from './Tag';
-import AutoComplete from './AutoComplete';
+import AutoComplete from './autoComplete/AutoComplete';
 import ClickToEdit from './ClickToEdit';
 
 const Custom = () => {
