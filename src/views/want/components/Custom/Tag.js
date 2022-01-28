@@ -1,35 +1,44 @@
-import React, { useCallback, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { AiFillCloseCircle } from 'react-icons/ai';
 
 const Tag = () => {
-  const [id, setId] = useState(0);
+  const nextId = useRef(3);
   const [value, setValue] = useState('');
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState([
+    {
+      id: 1,
+      text: 'CodeStates',
+    },
+    {
+      id: 2,
+      text: 'JJang',
+    },
+  ]);
   const onChange = (e) => {
     setValue(e.target.value);
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    setTags([...tags, {
-      id,
+    const tag = {
+      id: nextId.current,
       text: value,
-    }]);
-    setId(id + 1);
+    };
+    setTags(tags.concat(tag));
     setValue('');
+    nextId.current += 1;
   };
-  const onClose = (index) => {
-    setTags(tags.filter((tag) => tag.id !== index));
+  const onRemove = (id) => {
+    setTags(tags.filter((tag) => tag.id !== id));
   };
-  console.log(tags);
   return (
     <Container>
       <TagForm onSubmit={onSubmit}>
         {
-          tags.map((item, index) => (
+          tags.map((item) => (
             <TagItem>
               {item.text}
-              <Icon onClick={() => onClose(index)}><AiFillCloseCircle /></Icon>
+              <Icon onClick={() => onRemove(item.id)}><AiFillCloseCircle /></Icon>
             </TagItem>
           ))
         }
