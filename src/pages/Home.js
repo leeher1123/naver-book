@@ -1,34 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { useSelector } from 'react-redux';
-
 import HomeContainer from '../views/home/containers/HomeContainer';
-import PostCard from '../views/home/components/PostCard';
-import PostForm from '../views/home/components/PostForm';
+import Profile from '../views/home/components/user/Profile';
 
-const Home = () => {
-  const { mainPosts } = useSelector((state) => state.home);
-  return (
-    <Container>
-      <HomeContainer />
-      <Post>
-        <PostForm />
-        {
-          mainPosts.map((post) => <PostCard key={post.id} post={post} />)
-        }
-      </Post>
-    </Container>
-  );
-};
+const Home = () => (
+  <Container>
+    <HomeContainer />
+    <Profile />
+  </Container>
+);
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-between;
-`;
-
-const Post = styled.div`
-  
+  margin-top: 30px;
 `;
 
 export default Home;

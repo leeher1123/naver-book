@@ -1,80 +1,32 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
 
-import { Action } from '../redux/reducer';
+import LoginForm from '../components/user/LoginForm';
+import UserProfile from '../components/user/UserProfile';
 
 const HomeContainer = () => {
-  const dispatch = useDispatch();
-  const [values, setValues] = useState({
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [data, setData] = useState({
     id: '',
     password: '',
   });
-  const onSubmit = (e) => {
-    e.preventDefault();
-    dispatch(Action.Creators.loginRequest(values));
-  };
-
-  const onChange = (e) => {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value,
-    });
-  };
   return (
     <Container>
-      <Form onSubmit={onSubmit}>
-        <Label>
-          <Input
-            type="text"
-            placeholder="아이디"
-            onChange={onChange}
-            value={values.id}
-            name="id"
-          />
-        </Label>
-        <Label>
-          <Input
-            type="password"
-            placeholder="비밀번호"
-            onChange={onChange}
-            value={values.password}
-            name="password"
-          />
-        </Label>
-        <Button>로그인</Button>
-      </Form>
+      {
+        isLoggedIn
+          ? <UserProfile data={data} setIsLoggedIn={setIsLoggedIn} />
+          : <LoginForm setIsLoggedIn={setIsLoggedIn} setData={setData} />
+      }
     </Container>
   );
 };
 
 const Container = styled.div`
-  padding: 0 30px;
-  height: 300px;
-`;
-
-const Form = styled.form`
-  width: 300px;
-  height: 30px;
-`;
-
-const Label = styled.label`
-  display: block;
-  margin-bottom: 10px;
-`;
-
-const Input = styled.input`
-  display: block;
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #767676;
-  outline: 0;
-`;
-
-const Button = styled.button`
-  width: 100%;
-  height: 40px;
-  cursor: pointer;
+  border: 1px solid #ddd;
+  padding: 40px 30px 30px;
+  height: 260px;
+  margin-left: 20px;
+  background-color: #eee;
 `;
 
 export default HomeContainer;
